@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Weathercard from "./weathercard";
 import "./style.css";
 
 const Temp = () => {
-  const [searchValue, setSearchValue] = useState("Dhanbad");
+  const intialParameter = "Dhanbad";
+  const [searchValue, setSearchValue] = useState(intialParameter);
   const [tempInfo, setTempInfo] = useState({});
 
-  const getWeatherInfo = async () => {
+  const getWeatherInfo = useCallback(async (value) => {
     try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=3e95d4d24fd38099c290ca524ec38f7d`;
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=3e95d4d24fd38099c290ca524ec38f7d`;
 
       let res = await fetch(url);
       let data = await res.json();
@@ -34,10 +35,11 @@ const Temp = () => {
     } catch (error) {
       console.log(error);
     }
-  };
-  useEffect(() => {
-    getWeatherInfo();
   }, []);
+
+  useEffect(() => {
+    getWeatherInfo(intialParameter);
+  }, [getWeatherInfo]);
 
   return (
     <>
@@ -57,7 +59,9 @@ const Temp = () => {
           <button
             className="searchButton"
             type="button"
-            onClick={getWeatherInfo}
+            onClick={() => {
+              getWeatherInfo(searchValue);
+            }}
           >
             Search
           </button>
