@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Poiret+One);
 
 @import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
-
+/* 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 :root {
   --rad: 0.7rem;
@@ -21,8 +21,8 @@
 }
 
 body {
-  background-color: #f5f5f5;
-  background: var(--color-dark);
+  /* background-color: #f5f5f5; */
+  /* background: var(--color-dark); */
   height: 100vh;
   min-height: 100vh;
   display: grid;
@@ -31,8 +31,8 @@ body {
 
 .widget {
   display: flex;
-  height: 500px;
-  width: 750px;
+  height: 400px;
+  width: 650px;
   flex-wrap: wrap;
   cursor: pointer;
   border-radius: 20px;
@@ -55,7 +55,7 @@ body {
 .widget .weatherInfo {
   flex: 0 0 70%;
   height: 40%;
-  background: #080705;
+  background: #bb861c;
   display: flex;
   align-items: center;
   color: white;
@@ -136,18 +136,18 @@ body {
 /* input search button style  */
 
 .search {
-  width: 100%;
+  width: 80%;
   position: relative;
   display: flex;
   justify-content: center;
 }
 
 .searchTerm {
-  width: 30%;
+  width: 35%;
   /* border: 3px solid #00b4cc; */
   border: none;
   padding: 16px;
-  height: 60px;
+  height: 50px;
   border-radius: 5px 0 0 5px;
   outline: none;
   font-size: 25px;
@@ -159,8 +159,8 @@ body {
 }
 
 .searchButton {
-  width: 120px;
-  height: 60px;
+  width: 130px;
+  height: 50px;
   border: none;
   background: #07a6f0;
   text-align: center;
@@ -183,12 +183,3 @@ body {
   margin-top: -150px;
   margin-bottom: 50px;
 }
-
-/*Resize the wrap to see the search bar change!*/
-/* .wrap {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
